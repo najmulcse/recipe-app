@@ -31,6 +31,8 @@ class RecipeController extends Controller
             'app_id'  => '6cf56913',
             'app_key' =>'cd072c9e246895577b3549821c4b66cb',
             'health'  => 'alcohol-free',
+            'from'  => 0,
+            'to'    => 100
         ];
 
         $client   = new Client();
@@ -55,7 +57,9 @@ class RecipeController extends Controller
             'q'		  => $item,
             'app_id'  => '253a0c94',
             'app_key' =>'5d90ffc7c8fcfee0fe7132d3ec5d8024',
-          
+            'health'  => 'alcohol-free',
+            'from'  => 0,
+            'to'    => 100
             
         ];
 

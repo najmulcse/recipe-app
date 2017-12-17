@@ -18,6 +18,7 @@ class RecipeController extends Controller
     public function searchRecipes(Request $request)
     {	
     	$item = $request->searchItem;
+
     	if (empty($item))
                {
                   return back();         
@@ -42,7 +43,7 @@ class RecipeController extends Controller
         
         $recipes = (string)$response->getBody();
         $response_results = json_decode($recipes);
-         dd($response_results);
+        dd($response_results);
     	return view('searchResult',compact('response_results'));
     }
 

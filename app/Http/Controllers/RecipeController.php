@@ -30,8 +30,6 @@ class RecipeController extends Controller
             'q'		  =>$item,
             'app_id'  => '6cf56913',
             'app_key' =>'cd072c9e246895577b3549821c4b66cb',
-            'from'    => 0,
-            'to'      => 100,
             'health'  => 'alcohol-free',
         ];
 
@@ -43,33 +41,34 @@ class RecipeController extends Controller
         
         $recipes = (string)$response->getBody();
         $response_results = json_decode($recipes);
-        
+       // dd($response_results);
     	return view('searchResult',compact('response_results','item'));
     }
 
 
-    // public function searchItems($item )
-    // {
-    // 	$recipeapi = "https://api.edamam.com/search";
+    public function detailsOfSingleItem($item,$th)
+    {
 
-    //     $params = [
-    //         'q'		  => $item,
-    //         'app_id'  => '253a0c94',
-    //         'app_key' =>'5d90ffc7c8fcfee0fe7132d3ec5d8024',
-    //         'from'    => 0,
-    //         'to'      => 10,
-    //         'health'  => 'alcohol-free',
-    //     ];
+    	$recipeapi = "https://api.edamam.com/search";
 
-    //     $client   = new Client();
-    //     $response = $client->get($recipeapi, [
-    //         'query'  => $params,
-    //         'verify' => false,
-    //     ]);
+        $params = [
+            'q'		  => $item,
+            'app_id'  => '253a0c94',
+            'app_key' =>'5d90ffc7c8fcfee0fe7132d3ec5d8024',
+          
+            
+        ];
+
+        $client   = new Client();
+        $response = $client->get($recipeapi, [
+            'query'  => $params,
+            'verify' => false,
+        ]);
         
-    //     $recipes = (string)$response->getBody();
-    //     $response_results = json_decode($recipes);
+        $recipes = (string)$response->getBody();
+        $response_results = json_decode($recipes);
+        //dd($response_results);
 
-    // 	return view('search',compact('response_results'));
-    // }
+    	return view('singleItem',compact('response_results','th'));
+    }
 }

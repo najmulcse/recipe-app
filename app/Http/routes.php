@@ -15,6 +15,7 @@
 
 Route::get('/',['as'=>'landing.page','uses'=>'RecipeController@landing']);
 Route::get('/search',['as'=>'search.item','uses'=>'RecipeController@searchRecipes']);
+Route::get('/{item}/{th}',['as'=>'single.item','uses'=>'RecipeController@detailsOfSingleItem']);
 
 Route::auth();
 

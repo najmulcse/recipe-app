@@ -18,7 +18,7 @@ class RecipeController extends Controller
     public function searchRecipes(Request $request)
     {	
     	$item = $request->searchItem;
-
+        // dd($item);
     	if (empty($item))
                {
                   return back();         
@@ -28,8 +28,8 @@ class RecipeController extends Controller
 
         $params = [
             'q'		  =>$item,
-            'app_id'  => '253a0c94',
-            'app_key' =>'5d90ffc7c8fcfee0fe7132d3ec5d8024',
+            'app_id'  => '6cf56913',
+            'app_key' =>'cd072c9e246895577b3549821c4b66cb',
             'from'    => 0,
             'to'      => 100,
             'health'  => 'alcohol-free',
@@ -43,8 +43,8 @@ class RecipeController extends Controller
         
         $recipes = (string)$response->getBody();
         $response_results = json_decode($recipes);
-        dd($response_results);
-    	return view('searchResult',compact('response_results'));
+        
+    	return view('searchResult',compact('response_results','item'));
     }
 
 

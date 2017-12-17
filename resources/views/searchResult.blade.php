@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <section id="work" class="section-modifiy work-modifiy">
-      <br> <div> <h2 style="text-align:center;">All Recipe Items </h2></div><br>
+      <br> <div> <h2 style="text-align:center;">All {{$item}} items </h2></div><br>
         <div class="container">
            
            <div class="row">
